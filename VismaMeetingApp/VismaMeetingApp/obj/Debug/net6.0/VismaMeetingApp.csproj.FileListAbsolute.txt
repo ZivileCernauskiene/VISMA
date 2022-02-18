@@ -1,0 +1,17 @@
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\bin\Debug\net6.0\VismaMeetingApp.exe
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\bin\Debug\net6.0\VismaMeetingApp.deps.json
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\bin\Debug\net6.0\VismaMeetingApp.runtimeconfig.json
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\bin\Debug\net6.0\VismaMeetingApp.dll
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\bin\Debug\net6.0\ref\VismaMeetingApp.dll
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\bin\Debug\net6.0\VismaMeetingApp.pdb
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.csproj.AssemblyReference.cache
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.AssemblyInfoInputs.cache
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.AssemblyInfo.cs
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.csproj.CoreCompileInputs.cache
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.dll
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\ref\VismaMeetingApp.dll
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.pdb
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.genruntimeconfig.cache
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\remixaz\Desktop\Z.C\11-16 C#\VISMA\Visma\VismaMeetingApp\VismaMeetingApp\obj\Debug\net6.0\VismaMeetingApp.csproj.CopyComplete
