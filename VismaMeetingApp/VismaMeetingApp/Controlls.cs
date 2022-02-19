@@ -10,16 +10,16 @@ namespace VismaMeetingApp
     {
         public static bool EndProgram = false;
         static string terminating = "Terminating.....";
-        static string endAll = "PLEASEENDTHISMISSERY";
+        public static string endAll = "PLEASEENDTHISMISSERY";
 
         public static void AddMeeting()
         {
+            Console.WriteLine("you are about to create a meeting");
             //get unique name
             string name = askString("Name of new meeting: ");
-            if (DataBase.Meetings != null)
-            {
-                if (DataBase.Meetings.Any(x => x.Name == name))
-                    {
+            
+            if (DataBase.Meetings.Any(x => x.Name == name))
+                {
                     Console.WriteLine("Meeting with this name already exists. Try again?");
                     if (tryAgain("Meeting with this name already exists. Try again? Y/N"))
                     {
@@ -32,7 +32,7 @@ namespace VismaMeetingApp
                         return;
                     }
                 }
-            }
+            
 
             if (EndProgram)
             {
@@ -94,10 +94,17 @@ namespace VismaMeetingApp
 
         public static void DeleteMeeting(string name)
         {
+            Console.WriteLine("you are about to delete a meeting");
             if (DataBase.Meetings.Any(x => x.Name == name))
             {
                 Console.WriteLine("Who is responsible?");
                 string responsible = Console.ReadLine();
+                if (responsible == endAll)
+                {
+                    EndProgram = true;
+                    Console.WriteLine(terminating);
+                    return;
+                }
                 if (DataBase.Meetings.Any(x => x.Name == name && x.ResponsiblePerson == responsible))
                 {
                     if(tryAgain("Are you sure you want to delete this meeting? "))
@@ -107,27 +114,99 @@ namespace VismaMeetingApp
                         Console.WriteLine("Meeting " + meetingToDelete.Name + " deleted. ");
                     }
                 }
-                
+                Console.WriteLine("Meeting is spared! No Deleting happened");
             }
         }
 
+        public static void AddPerson(string name)
+        {
+            Console.WriteLine("you are about to add a person");
+            Meeting meetingToAdd=DataBase.Meetings.FirstOrDefault(m => m.Name == name);
+            if (meetingToAdd == null)
+            {
+                Console.WriteLine("Meeting does not exist");
+                return;
+            }
+            string personToAdd = askString("Who you want to add?");
+            if (meetingToAdd.Attendees.Any(x => x == personToAdd))
+            {
+                Console.WriteLine("This person is already attending");
+                if (tryAgain("Add another? "))
+                {
+                    AddPerson(name);
+                }
+                else return;
+            }
+            //Check if time is overlapping
 
 
 
+
+        }
+
+        public static void RemovePerson(string name)
+        {
+            Console.WriteLine("you are about to remove a person");
+            Meeting meetingToRemove=DataBase.Meetings.FirstOrDefault(y => y.Name == name);
+            if (meetingToRemove == null)
+            {
+                Console.WriteLine("Meeting does not exist");
+                return;
+            }
+            string personToRemove = askString("Who to remove? ");
+
+            if (EndProgram)
+            {
+                Console.WriteLine(terminating);
+                return;
+            }
+
+            if (personToRemove == meetingToRemove.ResponsiblePerson)
+            {
+                Console.WriteLine("Can not remove person responsible");
+                if (tryAgain("Remove someone else?"))
+                {
+                    RemovePerson(name);
+                }
+                else
+                {
+                    Console.WriteLine("Did not remove anyone, attendees left: " + meetingToRemove.Attendees.Count);
+                    return;
+                }
+            }
+
+            if (meetingToRemove.Attendees.Any(x => x == personToRemove))
+            {
+                meetingToRemove.Attendees.Remove(personToRemove);
+                Console.WriteLine("Person "+personToRemove+ " was removed from meeting " + name);
+                return;
+            }
+            else
+            {
+                Console.WriteLine("Such person is not an attendee");
+                if(tryAgain("Remove someone else?"))
+                {
+                    RemovePerson(name);
+                }
+                return;
+            }
+
+
+        }
         static string askString(string question)
         {
             while (true)
             {
                 Console.Write(question);
                 string answer = Console.ReadLine();
-                if (answer != "" || answer != endAll)
-                {
-                    return answer;
-                }
                 if (answer == endAll)
                 {
                     EndProgram = true;
                     return "a5ae1b786f924b755ef026efb3c21179b3c33e9f";
+                }
+                if (answer == answer.Trim() && answer!="")
+                {
+                    return answer;
                 }
                 else
                 {
