@@ -130,6 +130,7 @@ namespace VismaMeetingApp
         {
             Console.WriteLine("you are about to add a person");
             Meeting meetingToAdd=DataBase.Meetings.FirstOrDefault(m => m.Name == name);
+            var index=DataBase.Meetings.IndexOf(meetingToAdd);
             if (meetingToAdd == null)
             {
                 Console.WriteLine("Meeting does not exist");
@@ -145,7 +146,20 @@ namespace VismaMeetingApp
                 }
                 else return;
             }
+
             //Check if time is overlapping
+
+            var timeOverlappingMeetings = DataBase.Meetings.Where(x => x.StartDate>=meetingToAdd.StartDate || x.EndDate>=meetingToAdd.EndDate).ToList();
+            if (timeOverlappingMeetings.Any(x => x.Attendees.Contains(personToAdd)))
+            {
+                if(!tryAgain("This person is already attending meeting at this time. Are you sure you want to add him again? Y/N "))
+                {
+                    Console.WriteLine("Person was not confirmed to add");
+                    return;
+                }
+            }
+            DataBase.Meetings[index].Attendees.Add(personToAdd);
+            Console.WriteLine("Person was added. Success");
 
 
 
@@ -224,7 +238,7 @@ namespace VismaMeetingApp
             }
         }
 
-        static bool tryAgain(string question)
+        public static bool tryAgain(string question)
         {
             Console.WriteLine(question);
             string answer = Console.ReadLine().ToLower();
@@ -235,7 +249,7 @@ namespace VismaMeetingApp
             return false;
         }
 
-        static Category GetCategory(string question)
+        public static Category GetCategory(string question)
         {
             List<string> categories = new List<string>() { "1. CodeMonkey", "2. Hub", "3. Short", "4. TeamBuilding" };
             while (true)
@@ -264,7 +278,7 @@ namespace VismaMeetingApp
             }
         }
 
-        static Type GetType(string question)
+        public static Type GetType(string question)
         {
             List<string> types = new List<string>() {"1. InPerson", "2. Live" };
             while (true)
@@ -290,7 +304,7 @@ namespace VismaMeetingApp
             }
         }
 
-        static DateTime GetDateTime(string question)
+        public static DateTime GetDateTime(string question)
         {
             while (true)
             {

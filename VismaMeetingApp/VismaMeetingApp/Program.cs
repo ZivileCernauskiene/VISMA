@@ -42,12 +42,14 @@ while (!Controlls.EndProgram)
         
         if (filterOrSelectMeeting == "1")
         {
-        
+            Console.Clear();
+            Console.WriteLine("Select a meeting: ");
             string selectedMeeting = MainSelections.GetValidSelection(meetingsToShow);
             if (Controlls.EndProgram)
             {
                 break;
             }
+            Console.WriteLine("Choose what happens with your selected meeting");
             string selectedAction=MainSelections.GetValidSelection(whatToDoWithMeeting);
             if (Controlls.EndProgram)
             {
@@ -96,8 +98,58 @@ while (!Controlls.EndProgram)
                 meetingsToShow = DataBase.Meetings.Select(x =>  x.Name + "   " + x.Description +"    "+x.ResponsiblePerson).Where(a=>a.Contains(allResposibles[int.Parse(filteringResponsible)-1])).ToList();
                 goto selectAgain;
             }
-            
-            
+            if (selectedFilter == "3")
+            {
+               
+                Category chosenCategory = Controlls.GetCategory("Choose a category:");
+                var something=DataBase.Meetings.Where(x=>x.Category==chosenCategory).ToList();
+                meetingsToShow=something.Select(x=>x.Name+"   "+" category is: "+x.Category+"  .").ToList();
+                goto selectAgain;
+            }
+            if (selectedFilter == "4")
+            {
+                Type chosentype = Controlls.GetType("Choose a category:");
+                var something = DataBase.Meetings.Where(x => x.Type == chosentype).ToList();
+                meetingsToShow = something.Select(x => x.Name + "   " + " type is: " + x.Type + "  .").ToList();
+                goto selectAgain;
+            }
+
+            if (selectedFilter == "5")
+            {
+                DateTime selectedStart = Controlls.GetDateTime("Filter start date ");
+                DateTime selectedEnd = Controlls.GetDateTime("Filter end date ");
+
+                var something = DataBase.Meetings.Where(x => x.StartDate > selectedStart && x.EndDate < selectedEnd);
+                meetingsToShow = something.Select(x => x.Name + " "+"  meeting starts: " + x.StartDate + "   , meeting ends:  "+x.EndDate).ToList();
+
+                goto selectAgain;
+            }
+
+            if (selectedFilter == "6")
+            {
+                int filterAttendees=0;
+                while (true)
+                {
+                    string text=Console.ReadLine();
+                    if(int.TryParse(text, out filterAttendees))
+                    {
+                        var something = DataBase.Meetings.Where(x => x.Attendees.Count >= filterAttendees);
+                        meetingsToShow=something.Select(x=>x.Name+"  number of attendees is : " + x.Attendees.Count).ToList();
+
+                        goto selectAgain;
+                    }
+                    if (text == Controlls.endAll)
+                    {
+                        Controlls.EndProgram = true;
+                        break;
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Only numbers available. Please choose minimum amount of attendees. And filter will work");
+                    }
+                }
+            }
             
             goto selectAgain;
         }
@@ -107,5 +159,5 @@ while (!Controlls.EndProgram)
 }
 
 DataBase.saveMeetings();
-Console.WriteLine(DataBase.Meetings.Count);
+
 Console.WriteLine("Pabaiga");
