@@ -81,7 +81,14 @@ namespace VismaMeetingApp
             }
 
             //get endDate
+            endDate:
             DateTime endMeeting = GetDateTime("Meeting ends at: ");
+            if (endMeeting < startMeeting)
+            {
+                Console.Clear();
+                Console.WriteLine("Please end meeting later than it starts");
+                goto endDate;
+            }
             if (EndProgram)
             {
                 Console.WriteLine(terminating);
@@ -89,6 +96,7 @@ namespace VismaMeetingApp
             }
 
             DataBase.Meetings.Add(new Meeting(name, description, responsible, category, type, startMeeting, endMeeting));
+            Console.Clear();
             Console.WriteLine("Meeting added. Success");
         }
 
@@ -107,7 +115,7 @@ namespace VismaMeetingApp
                 }
                 if (DataBase.Meetings.Any(x => x.Name == name && x.ResponsiblePerson == responsible))
                 {
-                    if(tryAgain("Are you sure you want to delete this meeting? "))
+                    if(tryAgain("Are you sure you want to delete this meeting? Y/N"))
                     {
                         Meeting meetingToDelete=DataBase.Meetings.FirstOrDefault(x => x.Name == name);
                         DataBase.Meetings.Remove(meetingToDelete);

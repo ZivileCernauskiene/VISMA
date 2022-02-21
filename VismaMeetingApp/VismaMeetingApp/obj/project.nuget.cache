@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1a/ae4i3s1VYHByL5cyhSdJ2nzd48IFWr/yABFPGoeEa21vYs8DqUrJ3JU4h3jsvmBhLJpORr3TfVWhmdUDkDA==",
+  "dgSpecHash": "FQWtR9xWBOgMZarfMjkpj7j3X1oF2nBbBWAZBqsNNRXREMTjkMTHmf8yhgQs1YRRh05R/agAAPKYtmoKxWAZmg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\remixaz\\Desktop\\Z.C\\11-16 C#\\VISMA\\Visma\\VismaMeetingApp\\VismaMeetingApp\\VismaMeetingApp.csproj",
+  "projectFilePath": "C:\\Users\\find_\\Desktop\\nuo 02-21\\02-21\\VISMA\\VismaMeetingApp\\VismaMeetingApp\\VismaMeetingApp.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\remixaz\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\find_\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }

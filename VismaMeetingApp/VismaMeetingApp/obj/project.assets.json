@@ -48,23 +48,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\remixaz\\.nuget\\packages\\": {},
+    "C:\\Users\\find_\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\remixaz\\Desktop\\Z.C\\11-16 C#\\VISMA\\Visma\\VismaMeetingApp\\VismaMeetingApp\\VismaMeetingApp.csproj",
+      "projectUniqueName": "C:\\Users\\find_\\Desktop\\nuo 02-21\\02-21\\VISMA\\VismaMeetingApp\\VismaMeetingApp\\VismaMeetingApp.csproj",
       "projectName": "VismaMeetingApp",
-      "projectPath": "C:\\Users\\remixaz\\Desktop\\Z.C\\11-16 C#\\VISMA\\Visma\\VismaMeetingApp\\VismaMeetingApp\\VismaMeetingApp.csproj",
-      "packagesPath": "C:\\Users\\remixaz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\remixaz\\Desktop\\Z.C\\11-16 C#\\VISMA\\Visma\\VismaMeetingApp\\VismaMeetingApp\\obj\\",
+      "projectPath": "C:\\Users\\find_\\Desktop\\nuo 02-21\\02-21\\VISMA\\VismaMeetingApp\\VismaMeetingApp\\VismaMeetingApp.csproj",
+      "packagesPath": "C:\\Users\\find_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\find_\\Desktop\\nuo 02-21\\02-21\\VISMA\\VismaMeetingApp\\VismaMeetingApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\remixaz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\find_\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -111,7 +111,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

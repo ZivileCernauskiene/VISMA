@@ -6,12 +6,12 @@ DataBase.loadMeetings();
 
 List<string> startOptions = new List<string>() {"1. Add a meeting", "2. Select a meeting ", "3. End program " };
 List<string> selectMeeting = new List<string>() { "1. Select a meeting ", "2. Filter meetings", "3. End program" };
-List<string> filterOptions = new List<string>() {"1. Filter by name", "2. Filter by description ", "3.Filter by responsible person", "4. Filter by date" };
+List<string> filterOptions = new List<string>() {"1. Filter by description", "2. Filter by responsible person ", "3.Filter by category", "4. Filter by type", "5. Filter by dates (you will be asked to provide start date and end date).", "6. Filter by minimum number of attendees" };
 List<string> whatToDoWithMeeting = new List<string>() { "1. Add person", "2. Remove person", "3. Delete meeting" };
 
 while (!Controlls.EndProgram)
 {
-    Console.Clear();
+    
     Console.WriteLine("What do you want to do? Choose a number: ");
     string mainSelecion = MainSelections.GetValidSelection(startOptions);
     if (Controlls.EndProgram)
@@ -68,6 +68,37 @@ while (!Controlls.EndProgram)
         }
         if (filterOrSelectMeeting == "2")
         {
+            Console.Clear();
+            string selectedFilter=MainSelections.GetValidSelection(filterOptions);
+
+            if (Controlls.EndProgram)
+            {
+                break;
+            }
+            if (selectedFilter == "1")
+            {
+                Console.WriteLine("How to filter descriptions of meetings? ");
+                string filteringDescription=Console.ReadLine();
+                meetingsToShow=DataBase.Meetings.Select(x=>x.Description).Where(a=>a.Contains(filteringDescription)).ToList();
+                goto selectAgain;
+            }
+            if (selectedFilter == "2")
+            {
+                Console.WriteLine("These are responsible persons: ");
+                List<string> allResposibles = DataBase.Meetings.Select(x=>x.ResponsiblePerson).Distinct().ToList();
+
+          
+
+                string filteringResponsible=MainSelections.GetValidSelection(allResposibles);
+
+
+                // this is bad line but it works (not in all cases though)
+                meetingsToShow = DataBase.Meetings.Select(x =>  x.Name + "   " + x.Description +"    "+x.ResponsiblePerson).Where(a=>a.Contains(allResposibles[int.Parse(filteringResponsible)-1])).ToList();
+                goto selectAgain;
+            }
+            
+            
+            
             goto selectAgain;
         }
         else break;
